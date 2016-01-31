@@ -1,0 +1,13 @@
+item do
+  expected do
+    url_xpath
+    url 'http://git.kernel.org/cgit/linux/kernel/git/morgan/libcap.git/refs/tags'
+    xpath '//*[@id="cgit"]/div/table/tr[2]/td[1]/a'
+    regex /^libcap-korg-([\d.]+)$/
+  end
+
+  actual do
+    git_tag
+    regex /^(.*)-\d+$/
+  end
+end
