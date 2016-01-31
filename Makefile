@@ -34,7 +34,6 @@ build: submodule deps
 	rm -rf $(BUILD_DIR)
 	cp -R upstream $(BUILD_DIR)
 	cd $(BUILD_DIR) && CFLAGS='$(CFLAGS)' prefix=/usr lib=/lib make DESTDIR=$(RELEASE_DIR) install
-	mv $(RELEASE_DIR)/sbin $(RELEASE_DIR)/usr/bin
 	mkdir -p $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)
 	cp $(BUILD_DIR)/License $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)/LICENSE
 	cd $(RELEASE_DIR) && tar -czvf $(RELEASE_FILE) *
