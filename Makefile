@@ -34,7 +34,7 @@ build: submodule deps
 	rm -rf $(BUILD_DIR)
 	cp -R upstream $(BUILD_DIR)
 	sed -i "/SBINDIR/s#sbin#bin#" $(BUILD_DIR)/Make.Rules
-	cd $(BUILD_DIR) && CFLAGS='$(CFLAGS)' prefix=/usr lib=/lib make DESTDIR=$(RELEASE_DIR) install
+	cd $(BUILD_DIR) && make CFLAGS='$(CFLAGS)' CC=musl-gcc prefix=/usr lib=/lib DESTDIR=$(RELEASE_DIR) install
 	mkdir -p $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)
 	cp $(BUILD_DIR)/License $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)/LICENSE
 	cd $(RELEASE_DIR) && tar -czvf $(RELEASE_FILE) *
