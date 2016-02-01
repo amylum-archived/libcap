@@ -1,4 +1,4 @@
-PACKAGE = lipcap
+PACKAGE = libcap
 ORG = amylum
 
 DEP_DIR = /tmp/dep-dir
@@ -8,7 +8,7 @@ RELEASE_DIR = /tmp/$(PACKAGE)-release
 RELEASE_FILE = /tmp/$(PACKAGE).tar.gz
 CFLAGS = -static -static-libgcc -Wl,-static -I$(DEP_DIR)/usr/include
 
-PACKAGE_VERSION = $$(git --git-dir=upstream/.git describe --tags | sed 's/libcap-//')
+PACKAGE_VERSION = $$(git --git-dir=upstream/.git describe --tags | sed 's/libcap-korg-//')
 PATCH_VERSION = $$(cat version)
 VERSION = $(PACKAGE_VERSION)-$(PATCH_VERSION)
 
