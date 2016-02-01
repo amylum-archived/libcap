@@ -12,6 +12,12 @@ PACKAGE_VERSION = $$(git --git-dir=upstream/.git describe --tags | sed 's/libcap
 PATCH_VERSION = $$(cat version)
 VERSION = $(PACKAGE_VERSION)-$(PATCH_VERSION)
 
+PAM_VERSION = 1.2.1-9
+PAM_URL = https://github.com/amylum/pam/releases/download/$(PAM_VERSION)/pam.tar.gz
+PAM_TAR = /tmp/pam.tar.gz
+PAM_DIR = /tmp/pam
+PAM_PATH = -I$(PAM_DIR)/usr/include -L$(PAM_DIR)/usr/lib
+
 .PHONY : default submodule deps manual container deps build version push local
 
 default: submodule container
@@ -29,12 +35,16 @@ deps:
 	rm -rf $(DEP_DIR)
 	mkdir -p $(DEP_DIR)/usr/include
 	cp -R /usr/include/{linux,asm,asm-generic} $(DEP_DIR)/usr/include/
+	rm -rf $(PAM_DIR) $(PAM_TAR)
+	mkdir $(PAM_DIR)
+	curl -sLo $(PAM_TAR) $(PAM_URL)
+	tar -x -C $(PAM_DIR) -f $(PAM_TAR)
 
 build: submodule deps
 	rm -rf $(BUILD_DIR)
 	cp -R upstream $(BUILD_DIR)
 	sed -i "/SBINDIR/s#sbin#bin#" $(BUILD_DIR)/Make.Rules
-	cd $(BUILD_DIR) && make CFLAGS='$(CFLAGS)' CC=musl-gcc prefix=/usr lib=/lib DESTDIR=$(RELEASE_DIR) install
+	cd $(BUILD_DIR) && make CFLAGS='$(CFLAGS) $(PAM_PATH)' CC=musl-gcc prefix=/usr lib=/lib DESTDIR=$(RELEASE_DIR) install
 	mkdir -p $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)
 	cp $(BUILD_DIR)/License $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)/LICENSE
 	cd $(RELEASE_DIR) && tar -czvf $(RELEASE_FILE) *
