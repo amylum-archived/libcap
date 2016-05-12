@@ -6,13 +6,13 @@ DEP_DIR = /tmp/dep-dir
 BUILD_DIR = /tmp/$(PACKAGE)-build
 RELEASE_DIR = /tmp/$(PACKAGE)-release
 RELEASE_FILE = /tmp/$(PACKAGE).tar.gz
-CFLAGS = -static -static-libgcc -Wl,-static -I$(DEP_DIR)/usr/include
+CFLAGS = -I$(DEP_DIR)/usr/include
 
 PACKAGE_VERSION = $$(git --git-dir=upstream/.git describe --tags | sed 's/libcap-korg-//')
 PATCH_VERSION = $$(cat version)
 VERSION = $(PACKAGE_VERSION)-$(PATCH_VERSION)
 
-PAM_VERSION = 1.2.1-9
+PAM_VERSION = 1.2.1-10
 PAM_URL = https://github.com/amylum/pam/releases/download/$(PAM_VERSION)/pam.tar.gz
 PAM_TAR = /tmp/pam.tar.gz
 PAM_DIR = /tmp/pam
