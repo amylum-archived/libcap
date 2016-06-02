@@ -12,7 +12,7 @@ PACKAGE_VERSION = $$(git --git-dir=upstream/.git describe --tags | sed 's/libcap
 PATCH_VERSION = $$(cat version)
 VERSION = $(PACKAGE_VERSION)-$(PATCH_VERSION)
 
-PAM_VERSION = 1.2.1-10
+PAM_VERSION = 1.3.0-11
 PAM_URL = https://github.com/amylum/pam/releases/download/$(PAM_VERSION)/pam.tar.gz
 PAM_TAR = /tmp/pam.tar.gz
 PAM_DIR = /tmp/pam
