@@ -1,0 +1,21 @@
+name 'libcap'
+org 'amylum'
+
+licenses 'License'
+
+deps(
+  pam: '1.3.0-11',
+  'linux-api-headers': '4.8-rc6-2'
+)
+
+harden
+
+build do
+  run 'sed -i "/SBINDIR/s#sbin#bin#" Make.Rules'
+  make 'prefix' => '/usr', 'lib' => '/lib'
+  install 'prefix' => '/usr', 'lib' => '/lib'
+end
+
+test do
+  run 'homeof root'
+end
