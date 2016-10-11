@@ -17,5 +17,5 @@ build do
 end
 
 test do
-  run 'homeof root'
+  # TODO: add tests
 end
