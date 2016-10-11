@@ -1,3 +1,6 @@
 [submodule "upstream"]
 	path = upstream
 	url = git://git.kernel.org/pub/scm/linux/kernel/git/morgan/libcap.git
+[submodule "meta"]
+	path = meta
+	url = git://github.com/amylum/pkgforge-helper
