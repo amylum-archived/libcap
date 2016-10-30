@@ -12,7 +12,7 @@ harden
 
 build do
   run 'sed -i "/SBINDIR/s#sbin#bin#" Make.Rules'
-  run "make CC=musl-gcc CFLAGS=#{@forge.cflags.join(' ')}"
+  run "make CC=musl-gcc CFLAGS='#{@forge.cflags.join(' ')}'"
   install
 end
 
