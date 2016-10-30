@@ -8,12 +8,13 @@ deps(
   'linux-api-headers': '4.9-rc3-2'
 )
 
+cflags
 harden
 
 build do
   run 'sed -i "/SBINDIR/s#sbin#bin#" Make.Rules'
-  run 'make CC=musl-gcc', @forge.default_env
-  install
+  run "make CC=musl-gcc CFLAGS='#{@forge.cflags.join(' ')}'"
+  install 'prefix' => '/usr', 'lib' => '/lib'
 end
 
 test do
