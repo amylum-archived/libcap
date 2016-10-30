@@ -12,8 +12,8 @@ harden
 
 build do
   run 'sed -i "/SBINDIR/s#sbin#bin#" Make.Rules'
-  make 'prefix' => '/usr', 'lib' => '/lib'
-  install 'prefix' => '/usr', 'lib' => '/lib'
+  run "make CC=musl-gcc CFLAGS=#{@forge.cflags.join(' ')}"
+  install
 end
 
 test do
