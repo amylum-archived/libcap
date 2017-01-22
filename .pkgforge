@@ -4,8 +4,8 @@ org 'amylum'
 licenses 'License'
 
 deps(
-  pam: '1.3.0-20',
-  'linux-api-headers': '4.9-1'
+  pam: '1.3.0-21',
+  'linux-api-headers': '4.9.5-1'
 )
 
 cflags
