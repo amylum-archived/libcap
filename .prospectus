@@ -4,7 +4,7 @@ Prospectus.extra_dep('file', 'prospectus_pkgforge')
 item do
   expected do
     url_xpath
-    url 'http://git.kernel.org/pub/scm/linux/kernel/git/morgan/libcap.git/refs/tags'
+    url 'https://git.kernel.org/pub/scm/linux/kernel/git/morgan/libcap.git/refs/tags'
     xpath '//*[@id="cgit"]/div/table/tr[2]/td[1]/a'
     regex /^libcap-korg-([\d.]+)$/
   end
