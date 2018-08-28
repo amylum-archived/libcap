@@ -1,7 +1,7 @@
 libcap
 ==========
 
-[![Build Status](https://img.shields.io/circleci/project/amylum/libcap/master.svg)](https://circleci.com/gh/amylum/libcap)
+[![Build Status](https://img.shields.io/travis/com/amylum/libcap.svg)](https://travis-ci.com/amylum/libcap)
 [![GitHub release](https://img.shields.io/github/release/amylum/libcap.svg)](https://github.com/amylum/libcap/releases)
 [![GPL2 Licensed](http://img.shields.io/badge/license-GPL2-green.svg)](https://tldrlegal.com/license/gnu-general-public-license-v2)
 
