@@ -5,8 +5,8 @@ licenses 'License'
 
 deps(
   pam: {
-    version: '1.3.0-46',
-    checksum: 'f23defb7fc2f7a65fa2c48fcda3ce90fbad6745382ef30fecf722ea505694a06'
+    version: '1.3.0-47',
+    checksum: '8756e2e0b2634bcad1533c44e645f155cd47f53ed68de4dcf19a10b6406030eb'
   },
   'linux-api-headers': {
     version: '4.19-1',
