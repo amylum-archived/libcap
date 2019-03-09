@@ -5,12 +5,12 @@ licenses 'License'
 
 deps(
   pam: {
-    version: '1.3.0-51',
-    checksum: '7a83c48ab37dd86bcc173c3847813753ed973ae2ca6fe5cb694de1c921e881b8'
+    version: '1.3.0-52',
+    checksum: '5b5108feabba6bf404796ee2192f60a5f492087067faa42cc9d44ca23fab7950'
   },
   'linux-api-headers': {
-    version: '4.20-1',
-    checksum: 'aed037b2b3fb2df77ca19359a20188d39c25d011febf4d3733d251fa87ca9636'
+    version: '5.0-1',
+    checksum: '0703e1a5406fea7aa0072034e815fc2b3188151732ec61b134b0e54aa3e752ab'
   }
 )
 
